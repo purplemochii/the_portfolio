@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>[redacted]- Week Two</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>The Diary</strong> <span>by Kiki</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Landing</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+                        <section id="banner" class="major">
+                            <div class="inner">
+                                <header class="major">
+                                    <h1>Week Ten</h1>
+                                </header>
+                                <div class="content">
+                                    <p>The Banquet Scene Broke Me (and Unity)
+                                        <br>	Date: 31.03.2025 - 06.04.2025
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+						<!-- post -->
+							<section id="one">
+								<div class="inner">
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+                                    <p>At the start of this week, I foolishly thought: “The hard part is over. Time to just slot in cutscenes and chill.”</p>
+                                    <p>Unity said: “Be serious.”</p>
+
+                                    <h2>🍽️ The Banquet Cutscene™ — In Theory vs. In Practice</h2>
+                                    <p>This cutscene was supposed to be the emotional core of the banquet scene. It’s when the player fixes the chandelier, paints in the maid, helps her with the queen’s goblet, and hears suspicious aristocrat gossip that kicks off the cipher storyline.</p>
+                                    <ul>
+                                        <li>Half the sprites were PNGs with weird transparency issues. The aristocrats were literally melting into the background like ghosts from <em>The Ring</em>.</li>
+                                        <li>I needed characters to fade in/out during dialogue sequences. Except Unity doesn’t do sprite fading by default on UI Images (WHY). So I had to write custom fade scripts and hook them into the dialogue system. It almost worked. Until it didn’t.</li>
+                                        <li>The sparkles that guided you to the next character? They decided to activate 2 minutes too early and wouldn’t go away, so the entire scene looked like a discount Disney fireworks show.</li>
+                                        <li>I spent a whole day trying to fix a layering issue where the maid sprite would pop behind the dialogue panel every time she finished speaking. Turns out her canvas order was tied to the moon cycle or something because no matter what I changed it’d just snap back randomly.</li>
+                                    </ul>
+
+                                    <h2>🎮 Scene Logic? I Barely Know Her</h2>
+                                    <ul>
+                                        <li>The bar would fill at random times because multiple components were trying to <code>AddProgress()</code> at once.</li>
+                                        <li>One time it filled all the way after I clicked a candle. A CANDLE.</li>
+                                        <li>I ended up making a <code>BanquetProgressManager</code> script just to regulate who’s allowed to update the bar and when. It felt like setting up bouncers for a nightclub. “Sorry, goblet fix — you're not on the list.”</li>
+                                        <li>Also — and I cannot stress this enough — sparkles are my villain origin story. You have to time when they appear, fade out when the puzzle is done, stop from reactivating, and not block button clicks. I swear I wrote 3 different sparkle-handling scripts and they all betrayed me.</li>
+                                    </ul>
+
+                                    <h2>🫠 Dialogue Hell Part II</h2>
+                                    <ul>
+                                        <li>If you clicked too fast, the game would skip entire sections and jump to later objectives.</li>
+                                        <li>If you clicked too slow, the game would just… stall out with the maid blinking at you.</li>
+                                        <li>Sometimes the dialogue system would think we were still in a previous scene and display the wrong speaker name.</li>
+                                        <li>I also had to start implementing choice-driven flow, where picking a certain option would lead you down a different reaction path. Cool idea, but Unity buttons in world space? They will gaslight you. The collider won’t register, or it’ll be invisible, or you’ll click and nothing happens. Hours. Gone.</li>
+                                    </ul>
+
+                                    <h2>🧠 Me, Mid-Week:</h2>
+                                    <ul>
+                                        <li>30 tabs open on Unity forums</li>
+                                        <li>Rewatching my own cutscene over and over to find what broke it this time</li>
+                                        <li>Saying “you again?” out loud to the maid sprite like we’re exes</li>
+                                    </ul>
+
+                                    <h2>🌟 Small Wins (Finally)</h2>
+                                    <ul>
+                                        <li>The full banquet sequence is playable. You can do all three tasks, trigger all dialogue, and hear the aristocrats gossip about a child prince (who may or may not exist 👀).</li>
+                                        <li>The typewriter effect now pauses if another character is queued to speak, so no more dialogue overlaps.</li>
+                                        <li>Sparkles now actually stop after 2 seconds instead of flashing eternally into the void.</li>
+                                    </ul>
+
+                                    <p>This week nearly broke me but also gave me the closest thing to a scene that actually feels alive. The Banquet feels like a chapter now. There’s flow, intrigue, mood, and mystery.</p>
+                                    <p>Now that it’s “working,” I can finally move on to polishing up the gallery transitions, the archive scene... and oh god. The credits.</p>
+
+                                    <p>🎯 Next up: Week 11 – where I attempt to fake an ending with style ✨</p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
