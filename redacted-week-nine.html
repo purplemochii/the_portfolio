@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>[redacted]- Week Two</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>The Diary</strong> <span>by Kiki</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Landing</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+                        <section id="banner" class="major">
+                            <div class="inner">
+                                <header class="major">
+                                    <h1>Week Nine</h1>
+                                </header>
+                                <div class="content">
+                                    <p>World Space Woes, Overlay War Crimes & The Great Minigame Merge
+                                        <br>	Date: 24.03.2025 - 30.03.2025
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+						<!-- post -->
+							<section id="one">
+								<div class="inner">
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+                                    <p>If Week 8 was the glitter and screw disaster, Week 9 was the week Unity looked at my canvas setup and said: "No ❤️"</p>
+
+                                    <h2>🎭 UI Overlay Scene: My New Best Frenemy</h2>
+                                    <p>This was the week I fully committed to the UI_Overlay scene, which was supposed to be my solution to… well, everything. It housed the dialogue system, objective pop-ups, and that regal little crimson progress bar. The idea was: make it once, prefab it, and drop it into every scene like a good little modular dev.</p>
+                                    <p>Sounds clean, right? It was not.</p>
+                                    <ul>
+                                        <li>UI panels were invisible in scene view half the time.</li>
+                                        <li>World space scaling is a JOKE. Resize one thing and suddenly your buttons are thumbnail-sized or the size of the Empire State Building.</li>
+                                        <li>I had to write a script that made the canvas automatically show/hide based on the scene and dialogue state because otherwise it would just sit there silently judging me.</li>
+                                    </ul>
+
+                                    <h2>🧠 Mini-Game Layering: Overlays on Overlays on Overlays</h2>
+                                    <p>I had this really specific vision: when a mini-game starts, the background dims and the mini-game elements show up on top of the current scene, no scene loading, no cuts. Just a fade in. Elegant, immersive. Very <em>Slay the Princess</em> meets <em>Inception</em>.</p>
+                                    <ul>
+                                        <li>Getting the blur shader to work with the world space canvas took three separate attempts. I eventually gave up and faked it with a semi-transparent black overlay. Not the same, but hey, at least it didn’t crash Unity.</li>
+                                        <li>Trying to layer UI elements in the right order is like playing Jenga. You move one thing and everything else collapses.</li>
+                                        <li>I also had to find a way to pause certain parts of the scene logic (like camera movement) when a mini-game was up, and unpause them cleanly after. Let’s just say I’m now deeply intimate with <code>SetActive(false)</code> and <code>Time.timeScale</code>.</li>
+                                    </ul>
+
+                                    <h2>✍️ The Painting Mechanic That Refused to Behave</h2>
+                                    <p>So one of the banquet puzzles involved “painting in” a blacked-out character using the player’s cursor. We faked it by having the black sprite swap to the full-colored one once the player “painted enough.” It worked… eventually.</p>
+                                    <ul>
+                                        <li>First issue: cursor clicks weren’t being detected because the blacked-out maid had no collider.</li>
+                                        <li>Second issue: adding a collider broke the sparkles because apparently the collider was blocking the FX layer.</li>
+                                        <li>Third issue: the blacked-out sprite refused to go away even after being replaced. Turns out I was just disabling the wrong GameObject. Classic.</li>
+                                    </ul>
+                                    <p>I also gave up trying to track how much of the maid had been painted and just made it so one good swoosh = complete. Nobody tell the real artists.</p>
+
+                                    <h2>💬 Dialogue System V2: The Glow-Up</h2>
+                                    <ul>
+                                        <li>Typewriter effect? ✅</li>
+                                        <li>Character name fade-ins? ✅</li>
+                                        <li>Choice buttons on the side? ✅</li>
+                                        <li>Objective text that disappears after a few seconds? ✅</li>
+                                        <li>Fully script-driven flow so I can hardcode lines per scene? ✅✅✅</li>
+                                    </ul>
+                                    <p>It was one of those rare “oh wait this actually works and looks good” moments. Possibly the only thing this week that didn’t try to fight me.</p>
+
+                                    <h2>😵‍💫 Burnout Watch</h2>
+                                    <p>The candle is officially being burned at both ends with a blowtorch. I am sleeping maybe 4 hours a night and waking up with bug reports from my subconscious. I had a dream where Unity sent me a cease and desist because my UI was “offensive.” The dev brain rot is so real.</p>
+
+                                    <p>But even through the breakdowns, I started seeing things click into place. A working dialogue system, functional puzzles, and real player flow. The game’s not done, but it’s alive now.</p>
+                                    <p>Up next: Week 10, which I like to call "The Week of the Banquet Cutscene Massacre™." You ready? 😤</p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
