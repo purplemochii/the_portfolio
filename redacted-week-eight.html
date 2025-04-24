@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>[redacted]- Week Two</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>The Diary</strong> <span>by Kiki</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Landing</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+                        <section id="banner" class="major">
+                            <div class="inner">
+                                <header class="major">
+                                    <h1>Week Eight</h1>
+                                </header>
+                                <div class="content">
+                                    <p>Particle Effects, Puzzle Nightmares & the Sparkle Saga
+                                        <br>	Date: 17.03.2025 - 23.03.2025
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+						<!-- post -->
+							<section id="one">
+								<div class="inner">
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+                                    <p>This was one of those weeks where it felt like everything was happening and nothing was working at the same time. The vibe was: “If it’s shiny and pretty, maybe people won’t notice the bugs.” Unfortunately, Unity noticed.</p>
+
+                                    <h2>✨ Sparkle Effect Madness</h2>
+                                    <p>So one of the things I desperately wanted was this elegant, slow glitter particle effect that would act as an indicator for interactable objects. You know, subtle, magical — basically like when a video game whispers “hey, over here” without being annoying about it.</p>
+                                    <p>The reality?</p>
+                                    <p>Unity's particle system is a nightmare when you're trying to make something subtle. I had to fight every module (Shape, Color over Lifetime, Emission, Trails — WHY are there so many panels) just to get it to look less like a firework and more like a twinkle. At one point, my sparkles looked like they were trying to escape the scene entirely.</p>
+                                    <p>I ended up duplicating the effect across different GameObjects (which, in hindsight, I now know was a mistake — a performance one, at that). But it worked… kind of. They sparkled. They even paused when I needed them to stop. The problem came when I had to sync them with everything else.</p>
+
+                                    <h2>🧩 Puzzle Mini-Game Burnout (The Chandelier One)</h2>
+                                    <p>Ah yes, the chandelier mini-game. It sounds cute. But I was in hell.</p>
+                                    <p>This was supposed to be a simple “drag the right screws into the right holes” mechanic. What we got instead was:</p>
+                                    <ul>
+                                        <li>Screws not responding to drags</li>
+                                        <li>Dragged screws hovering ten feet away from the cursor</li>
+                                        <li>Screws disappearing into the void</li>
+                                        <li>Target holes refusing to detect anything</li>
+                                        <li>Collider bugs from stacking PNGs on top of each other</li>
+                                        <li>Incorrect screws somehow being accepted as valid</li>
+                                    </ul>
+                                    <p>At one point, I realized the issue was literally because all the screw PNGs were the same size and stacked on top of each other. Imagine debugging for four hours, only to find out your screws are basically smothering each other. Once I cropped the PNGs and replaced the big dummy rectangles, dragging finally felt usable.</p>
+                                    <p>Lesson learned: make your art assets as close to the actual shape as possible unless you want chaos in your hitboxes.</p>
+                                    <p>Also, fun fact: the correct screw placements trigger the side-view sprite to get swapped with a top-view version. This part actually worked… once I remembered to make prefabs for the top screws. Before that? Screws would just vanish into oblivion. Whoops.</p>
+
+                                    <h2>🔧 Fail State Logic = Existential Dread</h2>
+                                    <p>This mini-game also introduced a “fail condition,” where if you leave the wrong screw in a hole for too long, you get booted out of the painting. Great in theory — terrible when Unity decides the timer should still count after you've dragged the screw back out.</p>
+                                    <p>There were moments where I’d fix the chandelier and still get kicked out five seconds later, like the game was personally offended I’d succeeded. Eventually fixed it with a coroutine and collider logic that only counts while the screw is overlapping the wrong zone. Took way too long.</p>
+
+                                    <h2>😵‍💫 Burnout Watch</h2>
+                                    <p>This was also the week where I hit a new kind of burnout. The “I have twenty tiny bugs to fix and every single one is fighting back” type of burnout. I knew I needed to take breaks, but also — we’re halfway through the semester, and this game isn't going to debug itself.</p>
+                                    <p>So yeah, this week was messy. But I’m proud of the fact that despite the constant crashing (of both Unity and my energy levels), I kept chipping away at it.</p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
