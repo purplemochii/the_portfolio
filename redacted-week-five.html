@@ -33,11 +33,11 @@
                         <section id="banner" class="major">
                             <div class="inner">
                                 <header class="major">
-                                    <h1>Week Four</h1>
+                                    <h1>Week Five</h1>
                                 </header>
                                 <div class="content">
-                                    <p>The UI Era Begins
-                                        <br>	Date: 24.02.2025 - 01.03.2025
+                                    <p>Layers, Loss, and Learning the Truth About PNGs
+                                        <br>	Date: 3.03.2025 – 9.03.2025
                                     </p>
                                 </div>
                             </div>
@@ -45,83 +45,71 @@
 						<!-- post -->
 							<section id="one">
 								<div class="inner">
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-                                    <p>
-                                        This week, I officially stepped into my UI & Interaction Systems Developer role. 
-                                        <br>
-                                        It was a big shift from just planning to actively learning how to bring the interface to life.
-                                    </p>
-									<p>
-                                        <h2>Understanding My Role</h2>
-                                        Since UI is how players interact with the game, I spent time studying best practices 
-                                        for UI design, player experience, and Unity’s UI tools. I also looked into animations, 
-                                        event handling, and accessibility to make sure our game is intuitive and engaging.
-                                    </p>
-                                    <p>
-                                        <h2>Creating a Workable Timeline</h2> 
-                                        With midterms approaching, our team decided to lighten the workload over 
-                                        the next two weeks. We made a development timeline to ensure we stay on 
-                                        track without burning out.
-                                    </p>
-                                    <p>
-                                        <h2>Research Over Implementation</h2>                                       
-                                        So far, I haven’t built anything tangible, but I’ve been doing deep research 
-                                        into how UI elements should function. Next week, I’ll transition from research 
-                                        to building an actual prototype.
-                                    </p>
-                                    <p>
-                                        <h2>What I Learned / My Takeaways</h2>
-                                        <ul>
-                                            <li>Unity’s UI system is more complex than I thought, but very flexible.</li>
-                                            <li>UI isn’t just about visuals—it affects how players experience the game.</li>
-                                            <li>Planning around midterms is necessary to avoid getting overwhelmed.</li>
-                                        </ul>
-                                    </p>
-                                    <p>
-                                        <h2>Goals for Next Week</h2>
-                                        <ol>
-                                            <li>Start implementing the basic inventory, task list, and dialogue UI.</li>
-                                            <li>Experiment with button interactions, animations, and menu navigation.</li>
-                                            <li>Make sure everything is structured well for future expansion.</li>
-                                        </ol>
-                                    </p>
-                                    <p>
-                                        <h2>Conclusion: A Productive Start</h2>
-                                        I’m feeling more motivated this week, even if I haven’t built anything yet. 
-                                        Now that I understand what I need to do, I can start bringing the UI to life 
-                                        next week.
-                                    </p>
-								</div>
-							</section>
+									  <span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+                   
+                    <p class="date"></p>
+                    <p>This week was… intense. I started building the banquet scene properly, the first real puzzle scene in our game, and it was the first time I felt the full weight of designing a complex 2D-first-person scene in Unity. I knew it would be tricky, but I did not know it would chew me up and spit me out like this.</p>
 
-					</div>
+                    <p><strong>Let’s talk about layering.</strong> I had this vision of building a 2.5D parallax-style scene using world space canvases and layers of 960x405 PNGs that scrolled as the player moved the camera left and right. Simple enough in theory. I had all the assets, built a beautiful stack of panels—foreground elements, midground dancers, chandeliers, and sparkles—each perfectly composed in Photoshop.</p>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</footer>
+                    <p>And then I tried to make a button clickable. Nothing happened.</p>
 
-			</div>
+                    <p>I assumed the script was broken. I checked the canvas, the event system, the raycasters, even the layers—everything looked fine. Unity said there were no errors. So why couldn’t I click the button sitting on top of the chandelier? I lost a solid two days spiraling over this before I had a 3am revelation after collapsing mid-debug:</p>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+                    <p><em>All of my PNGs were full-sized 960x405 images.</em> Even though only part of the image was “visible,” the rest of the transparent canvas was still blocking interactions below it.</p>
 
-	</body>
-</html>
+                    <p>So, yeah. All those lovely dancers? Blocking the button. The floating centerpiece? Blocking the mini-game. The literal sparkles? Blocking my sanity.</p>
+
+                    <p>To fix this, I cropped every single screw and object to the size of their visible area and reimported all of them. I also restructured the entire hierarchy: separated all interactable objects into a dedicated “UI_Interactables” layer sitting above the decor, and made sure every UI element with a collider had Raycast Target enabled and a graphic raycaster on the canvas. Only then—only then—did things start to behave.</p>
+
+                    <h3>Successes this week:</h3>
+                    <ul>
+                      <li>Got horizontal camera movement working using input axes and clamped boundaries.</li>
+                      <li>Implemented parallax scrolling between three layers.</li>
+                      <li>Added an interactable button to launch the chandelier mini-game.</li>
+                      <li>Realized I need to crop everything manually and not trust transparent PNGs ever again.</li>
+                    </ul>
+
+                    <h3>Things that drove me to madness:</h3>
+                    <ul>
+                      <li>Unity’s lack of error messages for UI layering conflicts.</li>
+                      <li>Buttons being hidden behind "invisible" images.</li>
+                      <li>Realizing halfway through testing that I had three EventSystems active. (Oops.)</li>
+                    </ul>
+
+                    <h3>Takeaway of the week:</h3>
+                    <p><em>Just because something looks layered properly doesn’t mean Unity knows it’s layered properly.</em> Visual hierarchy ≠ interaction hierarchy. And if something’s not clickable? Check your raycasters. Check your canvas. Check your cropped assets. Then cry and try again.</p>
+                </div>
+              </section>
+  
+          </div>
+  
+          <!-- Footer -->
+            <footer id="footer">
+              <div class="inner">
+                <ul class="icons">
+                  <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                  <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                  <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                  <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                  <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                </ul>
+                <ul class="copyright">
+                  <li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                </ul>
+              </div>
+            </footer>
+  
+        </div>
+  
+      <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+  
+    </body>
+  </html>                  
