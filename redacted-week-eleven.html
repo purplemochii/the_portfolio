@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>[redacted]- Week Two</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>The Diary</strong> <span>by Kiki</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Landing</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+                        <section id="banner" class="major">
+                            <div class="inner">
+                                <header class="major">
+                                    <h1>Week Ten</h1>
+                                </header>
+                                <div class="content">
+                                    <p>Polish, Panic, and “Playable”
+                                        <br>	Date: 07.04.2025 - 13.04.2025
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+						<!-- post -->
+							<section id="one">
+								<div class="inner">
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+                                    <p>With the deadline looming like a Final Fantasy boss, Week 11 was my attempt to get the game polished — or at least in a state where I could say “yes, that is a video game.” Not a good one. But one that exists.</p>
+
+                                    <h2>🧼 Cutscene Cleanup Crew</h2>
+                                    <p>This week was all about refining flow. I had the dialogue system semi-working, the objective popups were showing up correctly, the sparkles were (finally) behaving… mostly. I went back through:</p>
+                                    <ul>
+                                        <li><strong>Main Room Scene</strong> — restructured the intro timing so it didn’t feel like an awkward monologue from the void. Added proper spacing between dialogue lines, slowed down the typewriter speed slightly so players could actually read what was being said.</li>
+                                        <li><strong>Gallery</strong> — fixed the awkward “Enter the Painting” moment. Now it flows into the Banquet more naturally. No more jump cuts that felt like whiplash.</li>
+                                        <li><strong>Banquet</strong> — tried to polish all those beautiful, fragile little moving parts. Replaced the placeholder “Thank the seven flames” line with some better scene timing and pacing. Adjusted the Enter the Cup Puzzle so it didn’t just slam open without context.</li>
+                                    </ul>
+                                    <p>I even got the dialogue choices working more cleanly. Like… the buttons responded. The callbacks didn’t bug out. The wrong dialogue didn’t show. For two days I was winning. TWO.</p>
+
+                                    <h2>🧪 Playtesting = Heartbreak</h2>
+                                    <p>While testing this, I discovered:</p>
+                                    <ul>
+                                        <li>The progress bar broke if you did tasks in the wrong order.</li>
+                                        <li>The maid mini-game sometimes activated before you even fixed the chandelier (girl why are you glowing, your turn hasn't come yet).</li>
+                                        <li>When the player clicked on the mirror early, they got stuck in a dialogue loop with no way to leave except forcibly exiting play mode. Love that.</li>
+                                    </ul>
+
+                                    <h2>🪞The UI Pass™</h2>
+                                    <ul>
+                                        <li><strong>Dialogue panel</strong> — semi-transparent black, full width, character names on the top left.</li>
+                                        <li><strong>Objective panel + choice box</strong> — same aesthetic but top-right positioned. Tied it into the medieval-pixel-art vibe so it feels like the same game now.</li>
+                                        <li>Even added glitch text and hover sounds to buttons (inspired by <em>Slay the Princess</em>), though some didn’t make it to the final build because… well… Week 12 happened.</li>
+                                    </ul>
+
+                                    <p>This was the moment where the game actually started to feel presentable. Not perfect, but the kind of thing where if someone squints, they might say: “Oh! There’s story here.”</p>
+
+                                    <h2>🧹 Scuffed but Sentimental</h2>
+                                    <p>By the end of the week, I was going scene by scene, adjusting the canvas render orders, manually assigning fade timings, tweaking dialogue spacing and page breaks. I spent half a day literally just adding ellipses where dramatic pauses were needed.</p>
+                                    <p>Nothing wild. Just a slow, semi-manic march toward submission.</p>
+                                    <p>But at that point? I was actually proud of what it was becoming. The Banquet felt immersive. The player had a voice. The mystery of the world was beginning to seep through. Sure, there were still bugs and missing polish — but it was my weird little baby.</p>
+
+                                    <p>I could see the finish line. And then. Week 12 came for my life.</p>
+
+                                    <p>🎯 Up Next: Week 12 — The Crash Heard Round the World. Bring tissues.</p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
